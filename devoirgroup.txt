@@ -6,3 +6,8 @@ movie_metadata <- read.csv("C://TPgroupe//movie_metadata.csv", header=T, sep=","
 
 # Chham - suppression des doublons 
 movie_metadata_moviename_nodoublon <- unique(movie_metadata)
+
+#je vais supprimer les lignes dont la valeur de la colonne gross est manquante afin de ne pas faire chuter "artificiellement" la moyenne des revenus de cette colonne#
+#il y a 5043 obs. dans la table importee originalement data_movie#
+data_movie2<-data_movie[complete.cases(data_movie[,9]),]
+#apres ce nettoyage de la colonne "gross", il nous reste 4159 obs.#
